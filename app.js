@@ -15,11 +15,26 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
+// Initialize express app
 var app = express();
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname + "public"));
-app.set("view engine", "ejs");
+
+// View Engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// BodyParser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Global Vars
+app.use(function(req, res, next){
+    res.locals.errors = null;
+    next();
+});
+
 // app.use(require("express-session")({
 //    secret: "fitswap ninjas",
 //    resave: false,
