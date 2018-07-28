@@ -35,11 +35,6 @@ app.use(function(req, res, next){
     next();
 });
 
-// app.use(require("express-session")({
-//    secret: "fitswap ninjas",
-//    resave: false,
-//    saveUninitialized: false
-// }));
 const indexRoutes = require("./routes/index");
 app.use(indexRoutes);
 
