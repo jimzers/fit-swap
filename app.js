@@ -17,14 +17,18 @@ firebase.initializeApp(config);
 
 
 var app = express();
-
-<<<<<<< HEAD
-var app = express();
-
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + "public"));
+app.set("view engine", "ejs");
+// app.use(require("express-session")({
+//    secret: "fitswap ninjas",
+//    resave: false,
+//    saveUninitialized: false
+// }));
+const indexRoutes = require("./routes/index");
+app.use(indexRoutes);
 
 /** SERVER LISTENER **/
 app.listen(process.env.PORT || 3000, process.env.IP, function(){
    console.log("The FitSwap server has started!");
 });
-=======
->>>>>>> f15f4faad38f047233466e604e0f5d9669c02732
