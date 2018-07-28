@@ -17,15 +17,15 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var db = firebase.database();
 
-const ref = db.ref('ninjas');
-ref.push({
-   name: "Ru Wikmann",
-   location: "London, England",
-   email: "ru@wickmann.com"
-})
-.catch(err => {
-   console.log(err);
-});
+// const ref = db.ref('ninjas');
+// ref.push({
+//    name: "Ru Wikmann",
+//    location: "London, England",
+//    email: "ru@wickmann.com"
+// })
+// .catch(err => {
+//    console.log(err);
+// });
 
 
 // Get a reference to the database service
