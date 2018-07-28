@@ -28,6 +28,9 @@ ref.push({
 });
 
 
+// Get a reference to the database service
+var database = firebase.database();
+
 // Initialize express app
 var app = express();
 
