@@ -1,7 +1,38 @@
 <% include partials/header %>
 
 
-<h1>FITSWAP</h1>
+<h1>Find a Fitness Ninja</h1>
 
+<form method="POST" action="/users/add">
+    <label>First Name</label>
+    <input type="text" name="first_name">
+    <br>
+    <label>Last Name</label>
+    <input type="text" name="last_name">
+    <br>
+    <label>Email</label>
+    <input type="text" name="email">
+    <br>
+    <label>What's your fitness goal?</label>
+    <select>
+        <option value="">Get in Shape</option>
+        <option value="">Learn a new sport</option>
+        <option value="">Recovery from an injury</option>
+    </select>
+    <br>
+    <label>Please describe your goal in more detail.</label>
+    <input type="text" name="goal">
+    <br>
+    <label>How important is it?</label>
+    <select>
+        <option value="">1 - why am I here?</option>
+        <option value="">2 - not to sure</option>
+        <option value="">3 - would be nice</option>
+        <option value="">4 - I'd love to</option>
+        <option value="">5 - I need it now!</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
 
 <% include partials/footer %>
