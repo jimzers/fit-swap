@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% include partials/header %>
 
 
@@ -52,4 +53,33 @@
 </form>
 
 
+=======
+<% include partials/header %>
+
+
+<h1>Find a Fitness Ninja</h1>
+
+<form method="POST" action="/users/add">
+    <label>First Name</label>
+    <input type="text" name="first_name">
+    <br>
+    <label>Last Name</label>
+    <input type="text" name="last_name">
+    <br>
+    <label>Email</label>
+    <input type="text" name="email">
+    <br>
+    <label>What is your fitness goal?</label>
+    <select>
+        <option value="">Get in Shape</option>
+        <option value="">Learn a new sport</option>
+        <option value="">Recovery from an injury</option>
+    </select>
+    <label></label>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+
+>>>>>>> a581a4f78b85d55f67987dbd001490e57ca195ab
 <% include partials/footer %>
