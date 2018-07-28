@@ -18,13 +18,14 @@ firebase.initializeApp(config);
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname + "public"));
+app.use(express.static(path.join(__dirname + "public")));
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
-// app.use(require("express-session")({
-//    secret: "fitswap ninjas",
-//    resave: false,
-//    saveUninitialized: false
-// }));
+app.use(require("express-session")({
+   secret: "fitswap ninjas",
+   resave: false,
+   saveUninitialized: false
+}));
 const indexRoutes = require("./routes/index");
 app.use(indexRoutes);
 
