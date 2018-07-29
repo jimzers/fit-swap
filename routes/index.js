@@ -15,6 +15,10 @@ router.get('/novice', (req, res) => {
    res.render('novice-form');
 });
 
+router.get('/results', (req, res) => {
+   res.render('results');
+});
+
 router.get('/agora', (req, res) => {
    res.render('agora');
 });
@@ -53,8 +57,7 @@ router.post("/novice/add", (req, res) => {
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorCode, errorMessage);
-    });
-   
+    });   
    res.redirect('/results');
 });
 
