@@ -1,42 +1,105 @@
 
 <% include partials/header %>
 <div class="form">
-<h1>NOVICE FORM</h1>
+<h1 class="form-title">NOVICE FORM</h1>
 
 <form method="POST" action="/novice/add">
-    <label class="pad">First Name</label>
-    <input class="pad" type="text" name="first_name">
-    <br>
-    <label class="pad">Last Name</label>
-    <input class="pad" type="text" name="last_name">
-    <br>
-    <label class="pad">Email</label>
-    <input class="pad" type="text" name="email">
-    <br>
+   <table style="width: 70%; margin: 0 auto;">
+      <tr>
+         <td>
+            <label class="pad">First Name</label>
+
+         </td>
+         <td>
+               <input class="pad" type="text" name="first_name">
+
+         </td>
+         
+      </tr>
+
+      <tr>
+         <td>
+               <label class="pad">Last Name</label>
+
+         </td>
+         <td>
+               <input class="pad" type="text" name="last_name">
+
+         </td>
+         
+      </tr>
+
+      <tr>
+         <td>
+               <label class="pad">Email</label>
+
+         </td>
+         <td>
+               <input class="pad" type="text" name="email">
+
+         </td>
+         
+      </tr>
+
+      <tr>
+         <td>
     <label class="pad">Phone</label>
-    <input class="pad" type="text" name="phone">
-    <br>
-    <label class="pad">What's your fitness goal?</label>
-        <input class="pad" type="checkbox" name="goal" value="Get in Shape">Get in Shape
-        <input class="pad" type="checkbox" name="goal" value="Learn a new sport">Learn a new sport
-        <input class="pad" type="checkbox" name="goal" value="Recovery from an injury">Recovery from an injury
-    <br>
-    <label class="pad">Please describe your goal in more detail.</label>
-    <input class="pad" type="text" name="details">
-    <br>
-    <label class="pad">How important is it?</label>
-    <select class="pad" name="importance">
-        <option value="1 - why am I here?">1 - why am I here?</option>
-        <option value="2 - not to sure">2 - not to sure</option>
-        <option value="3 - would be nice">3 - would be nice</option>
-        <option value="4 - I'd love to">4 - I'd love to</option>
-        <option value="5 - I need it now!">5 - I need it now!</option>
-    </select>
-    <br>
-    <label class="pad">What is your address?</label>
-    <input class="pad" type="text" name="location">
-    <br>
-    <label class="pad">What gym membership do you have, if any?</label>
+         </td>
+         <td>
+               <input class="pad" type="text" name="phone">
+            </td>
+         
+      </tr>
+      <tr>
+            <td>
+                  <label class="pad">What's your fitness goal?</label>
+               </td>
+            <td>
+                  <div> <input class="pad" type="checkbox" name="goal" value="Get in Shape">Get in Shape</div>
+                  <div> <input class="pad" type="checkbox" name="goal" value="Learn a new sport">Learn a new sport</div>
+                  <div> <input class="pad" type="checkbox" name="goal" value="Recovery from an injury">Injury Rehab</div>
+            </td>
+            
+         </tr>
+         <tr>
+               <td>
+                     <label class="pad">Please describe your goal in more detail.</label>
+                  </td>
+               <td>
+                     <input class="pad" type="text" name="details">
+                  </td>
+               
+            </tr>
+            <tr>
+                  <td>
+                        <label class="pad">How important is it?</label>
+                     </td>
+                  <td>
+                        <select class="pad" name="importance">
+                              <option value="1 - why am I here?">1 - why am I here?</option>
+                              <option value="2 - not to sure">2 - not to sure</option>
+                              <option value="3 - would be nice">3 - would be nice</option>
+                              <option value="4 - I'd love to">4 - I'd love to</option>
+                              <option value="5 - I need it now!">5 - I need it now!</option>
+                          </select>
+                                           </td>
+                  
+               </tr>
+               <tr>
+                     <td>
+                           <label class="pad">What is your address?</label>
+                        </td>
+                     <td>
+                           <input class="pad" type="text" name="location">
+                        </td>
+                     
+                  </tr>
+      <tr>
+         <td>
+               <label class="pad">What gym membership do you have, if any?</label>
+
+         </td>
+         <td>
     <select class="pad" name="gym">
         <option value="None">None</option>
         <option value="Not listed">Not listed</option>
@@ -47,58 +110,126 @@
         <option value="Fitness First">Fitness First</option>
         <option value="Nuffield">Nuffield</option>
     </select>
-    <br>
-    <label class="pad">How far would you be willing to travel?</label>
-    <select class="pad" name="travelTime">
-         <option value="15">15 min</option>
-        <option value="30">30 min</option>
-        <option value="60">60 min</option>
-        <option value="90">90 min</option>
-    </select>
-    <br>
-    <label class="pad">Would you rather train in a gym, at home, outdoors or online?</label>
-    <select class="pad">
-        <option value="Gym">Gym</option>
-        <option value="Home">At home</option>
-        <option value="Outdoors">Outdoors</option>
-        <option value="Online">Online</option>
-    </select>
-    <br>
-    <label class="pad">What days of the week would suit you?</label>
-    <select class="pad">
-        <option value="">Weekdays</option>
-        <option value="">Weekends</option>
-    </select>
-    <br>
-    <label class="pad">What time of the day would suit you?</label>
-    <select class="pad" name="time">
-        <option value="Before 9">Before 9 am</option>
-        <option value="9-12">9 am - 12 pm</option>
-        <option value="12-6">12 pm - 6 pm</option>
-        <option value="After 6">After 6 pm</option>
-    </select>
-    <br>
-    <label class="pad">What services can you provide for a Fitness Ninja?</label>
-    <select class="pad" name="skills" multiple>
-        <option value="None">None of these</option>
-        <option value="Accountant">Accountant</option>
-        <option value="Architect">Architect</option>
-        <option value="Business consultant">Business consultant</option>
-    </select>
-    <br>
-    <label class="pad">If not listed, perhaps you have another skill or an item of value that you can share?</label>
-    <input class="pad" type="text" name="skills">
-    <br>
-    <label class="pad">If you have a LinkedIn profile, please provide the link below.</label>
-    <input class="pad" type="text" name="linkedin">
-    <br>
-    <label class="pad">Will you give your best work and adhere to the Fitswap Code?</label>
-    <input class="pad" type="checkbox" name="agreement" value="code"> By checking the box you are also accepting our Terms of Service.
-    <br>
-    <label class="pad">Please give us your consent to store your data and to communicate via email.</label>
-    <input class="pad" type="checkbox" name="agreement" value="consent">Fitswap will email you in order to deliver our service and to continuously improve it by asking for feedback. We may also tell you about offers from carefully selected third parties that have been granted to Fitswap users. You always have the right to opt out. Please view the Privacy Policy on our website for more details.
-    <br><br>
-    <input class="pad" type="submit" value="Submit">
+
+         </td>
+         
+      </tr>
+
+      <tr>
+         <td>
+               <label class="pad">How far would you be willing to travel?</label>
+
+         </td>
+         <td>
+               <select class="pad" name="travelTime">
+                     <option value="15">15 min</option>
+                    <option value="30">30 min</option>
+                    <option value="60">60 min</option>
+                    <option value="90">90 min</option>
+                </select>
+            
+         </td>
+         
+      </tr>
+      <tr>
+         <td>
+               <label class="pad">Would you rather train in a gym, at home, outdoors or online?</label>
+
+         </td>
+         <td>
+               <select class="pad">
+                     <option value="Gym">Gym</option>
+                     <option value="Home">At home</option>
+                     <option value="Outdoors">Outdoors</option>
+                     <option value="Online">Online</option>
+                 </select>
+             
+         </td>
+         
+      </tr>
+
+      <tr>
+         <td>
+               <label class="pad">What days of the week would suit you?</label>
+
+         </td>
+         <td>
+               <select class="pad">
+                     <option value="">Weekdays</option>
+                     <option value="">Weekends</option>
+                 </select>
+             
+         </td>
+         
+      </tr>
+      <tr>
+            <td>
+                  <label class="pad">What time of the day would suit you?</label>
+   
+            </td>
+            <td>
+                  <select class="pad" name="time">
+                        <option value="Before 9">Before 9 am</option>
+                        <option value="9-12">9 am - 12 pm</option>
+                        <option value="12-6">12 pm - 6 pm</option>
+                        <option value="After 6">After 6 pm</option>
+                    </select>
+                   
+            </td>
+            
+         </tr>
+         <tr>
+               <td>
+                     <label class="pad">What services can you provide for a Fitness Ninja?</label>
+      
+               </td>
+               <td>
+                     <select class="pad" name="skills" multiple>
+                           <option value="None">None of these</option>
+                           <option value="Accountant">Accountant</option>
+                           <option value="Architect">Architect</option>
+                           <option value="Business consultant">Business consultant</option>
+                       </select>
+                         
+               </td>
+               
+            </tr>
+            <tr>
+         <td>
+               <label class="pad">If not listed, perhaps you have another skill or an item of value that you can share?</label>
+
+         </td>
+         <td>
+               <input class="pad" type="text" name="skills">
+
+         </td>
+         
+      </tr>
+      <tr>
+            <td>
+                  <label class="pad">If you have a LinkedIn profile, please provide the link below.</label>
+   
+            </td>
+            <td>
+                  <input class="pad" type="text" name="linkedin">
+   
+            </td>
+            
+         </tr>
+      
+   </table>
+   <p style="text-align: center; font-weight: 600;">    <label class="pad">Will you give your best work and adhere to the Fitswap Code?</label>
+   </p>
+    <p style="text-align: center;">     <input class="pad" type="checkbox" name="agreement" value="code"> By checking the box you are also accepting our Terms of Service.
+    </p>
+    <p style="text-align: center; font-weight: 600;">     <label class="pad">Please give us your consent to store your data and to communicate via email.</label>
+    </p>
+    <p style="font-size: 0.85em; text-align: center;"><input class="pad" type="checkbox" name="agreement" value="consent">Fitswap will email you in order to deliver our service and to continuously improve it by asking for feedback. </p>
+    <p style="font-size: 0.75em; text-align: center;">We may also tell you about offers from carefully selected third parties that have been granted to Fitswap users. You always have the right to opt out. Please view the Privacy Policy on our website for more details.</p>
+<div class="buttons">
+      <input class="pad btn main" type="submit" value="Submit">
+</div>
+    
 </form>
 </div>
 
