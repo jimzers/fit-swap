@@ -16,11 +16,13 @@ a:hover{
    color: black;
 }
 .green{background-color: #00ad77;}
-.logo{ width: 25px;
-padding-right: 10px;}
-.title{display: inline;
+.logo{ width: 40px;
 padding-right: 20px;}
+.title{display: inline;
+   padding-right: 20px;}
 .header{
+   display: flex;
+   align-items: center;
    margin: 0;
    padding: 10px;
    background-color: #17a377;
@@ -48,7 +50,7 @@ padding-right: 20px;}
 }
 .ninja{
    display: flex; 
-   width: 80%;
+   width: 70%;
    margin: 0 auto;
    margin-bottom: 10px; 
    border: 1px solid #bbb;
@@ -56,9 +58,10 @@ padding-right: 20px;}
 }
 .ninja table{
    color: black;
+   padding-bottom: 20px;
 }
 .details{
-   
+   padding: 10px;
    background-color: white;
    width: 100%;
 }
@@ -67,13 +70,13 @@ padding-right: 20px;}
    justify-content: center;
    width: 100%;
    margin: 0 auto;
-   margin-bottom: 10px;
+  
 }
 .buttons a{
    margin: 0;
 }
 .btn{
-   background-color: black;
+   background-color: #0d4600;
    border: none;
    border-radius: 5px;
    padding: 8px;
@@ -86,11 +89,11 @@ padding-right: 20px;}
    border-radius: 20px;
 }
 .btn.swap {
-   background-color: blue;
+   background-color: #238277;
 }
 
 .btn.buy {
-   background-color: #17a377;
+   background-color: #238277;
 }
 .codes{
    max-width: 100%;
