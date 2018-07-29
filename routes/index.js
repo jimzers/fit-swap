@@ -1,6 +1,6 @@
 const firebase = require("firebase"),
       express  = require('express'),
-      router   = express.Router(),      
+      router   = express.Router(),
       db = firebase.database(),
       axios = require('axios');
 
@@ -76,7 +76,20 @@ router.get('/results', (req, res) => {
       for (let index = 0; index < ninjas.length; index++) {
          console.log(ninjas[index].name.first+": "+ninjas[index].rating)        
       }
-      //Rank by compatibility
+
+      // Rank by compatibility
+
+      function sortFunction(a, b) {
+         if (a.rating === b.rating) {
+            return 0;
+         }
+         else {
+            return (a.rating < b.rating) ? -1 : 1;
+         }
+      }
+      var sortedArray = ninjas.sort(sortFunction);
+      console.log("sorting ninjas...");
+      console.log(sortedArray);
    
 
       // Get the locations of the ninja
@@ -92,14 +105,14 @@ router.get('/results', (req, res) => {
          })
          .catch(err => { console.log("ERROR: ", err); }); 
       }) 
-      .catch(err => { console.log(err); }) 
+      .catch(err => { console.log(err); });
 
       //Match by distance
 
       
 
       // Render the results
-      res.render('results', {ninjas: ninjas}); 
+      res.render('results', {ninjas: sortedArray});
    });       
 });
 
