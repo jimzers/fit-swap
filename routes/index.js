@@ -1,6 +1,6 @@
 const firebase = require("firebase"),
       express  = require('express'),
-      router   = express.Router(),      
+      router   = express.Router(),
       db = firebase.database(),
       axios = require('axios');
 
@@ -76,16 +76,31 @@ router.get('/results', (req, res) => {
          console.log(ninjas[index].name.first+": "+ninjas[index].rating)        
       }
 
+<<<<<<< HEAD
+      // Rank by compatibility
+
+=======
       //Rank by compatibility
+>>>>>>> a6cffd45830c1f2344495eb82599a77e8e236c7c
       function sortFunction(a, b) {
          if (a.rating === b.rating) {
             return 0;
          }
          else {
+<<<<<<< HEAD
+            return (a.rating < b.rating) ? -1 : 1;
+         }
+      }
+      var sortedArray = ninjas.sort(sortFunction);
+      console.log("sorting ninjas...");
+      console.log(sortedArray);
+   
+=======
             return (a.rating < b.rating) ? 1 : -1;
          }
       }
       var sortedArray = ninjas.sort(sortFunction);
+>>>>>>> a6cffd45830c1f2344495eb82599a77e8e236c7c
 
       console.log("SORTED NINJAS: ", sortedArray);
       
@@ -93,11 +108,28 @@ router.get('/results', (req, res) => {
       res.render('results', {ninjas: sortedArray}); 
    });
 
+<<<<<<< HEAD
+         // Get the distances from the novice
+         axios.get("https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins="+lat+","+lng+"&destinations="+37.834133+","+-122.005266+"&travelMode=driving&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
+         .then(res => {
+            console.log("DISTANCE: ", res.data.resourceSets[0].resources[0].results[0].travelDuration, "minutes");
+         })
+         .catch(err => { console.log("ERROR: ", err); }); 
+      }) 
+      .catch(err => { console.log(err); });
+=======
      
 });
+>>>>>>> a6cffd45830c1f2344495eb82599a77e8e236c7c
 
 
 
+<<<<<<< HEAD
+      // Render the results
+      res.render('results', {ninjas: sortedArray});
+   });       
+});
+=======
 function getNoviceLocation (id) {
    return axios.get("http://dev.virtualearth.net/REST/v1/Locations/"+id+"?o=json&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
        .then(response => {
@@ -113,6 +145,7 @@ function getNoviceLocation (id) {
 }
 
          
+>>>>>>> a6cffd45830c1f2344495eb82599a77e8e236c7c
 
 // Get video chat via agora
 router.get('/agora', (req, res) => {

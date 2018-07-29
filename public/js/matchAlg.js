@@ -73,8 +73,8 @@ function sortMatches(noviceName) {
 
     const noviceDB = firebase.database().ref().child('novices');
 
-    var requestingNovice = firebase.database().ref('novices').once()
-});
+   // var requestingNovice = firebase.database().ref('novices').once()
+};
 console.log(requestingNovice);
 
 novice_info = [];
@@ -92,6 +92,7 @@ time
 where
 details
  */
+/*
 ninja_arr.forEach(ninja => {
         // if distance (novice_info[5], ninja[5]) < their own choice but hardcode 5) {
         //      add points otherwise make the points negative lol
@@ -115,3 +116,4 @@ var sortedArray = ninja_arr.sort(sortFunction);
 return sortedArray;
 
 }
+*/
