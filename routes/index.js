@@ -102,7 +102,7 @@ router.get('/results', (req, res) => {
 function getNoviceLocation (id) {
    return axios.get("http://dev.virtualearth.net/REST/v1/Locations/"+id+"?o=json&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
        .then(response => {
-         this.response = response.data
+         this.response = response.data;
          console.log(this.response.resourceSets[0].resources[0].point.coordinates[0]);
          console.log(this.response.resourceSets[0].resources[0].point.coordinates[1]);
          return {
@@ -113,7 +113,6 @@ function getNoviceLocation (id) {
        .catch(err => { console.log(err); }) 
 }
 
-         
 
 // Get video chat via agora
 router.get('/agora', (req, res) => {
