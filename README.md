@@ -7,4 +7,4 @@ For students, housewives and professionals alike, Fitswap is a platform to swap 
 
 Link to the code for the mobile version of the application: https://github.com/jimzers/livechat-fitSwap
 
-Link to future Firechat implementation code: https://jizmers.github.io/firechat
+Link to future Firechat implementation code: https://jimzers.github.io/firechat
