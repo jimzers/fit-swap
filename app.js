@@ -11,7 +11,7 @@ const bodyParser  = require('body-parser'),
 // Initialize Firebase Database
 // TODO: Replace with your project's customized code snippet
 var configs = {
-    apiKey: "firebase.API_KEY",
+    apiKey: "AIzaSyDkm1KG9gyzQn70FWalWm19OYzGRxxJWoA",
     authDomain: "fitswap-f2c33.firebaseapp.com",
     databaseURL: "https://fitswap-f2c33.firebaseio.com",
     storageBucket: "fitswap-f2c33.appspot.com",

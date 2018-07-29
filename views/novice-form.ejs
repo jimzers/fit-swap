@@ -17,9 +17,9 @@
     <input type="text" name="phone">
     <br>
     <label>What's your fitness goal?</label>
-        <input type="checkbox" name="shape" value="Get in Shape">Get in Shape
-        <input type="checkbox" name="sport" value="Learn a new sport">Learn a new sport
-        <input type="checkbox" name="sport" value="Recovery from an injury">Recovery from an injury
+        <input type="checkbox" name="goal" value="Get in Shape">Get in Shape
+        <input type="checkbox" name="goal" value="Learn a new sport">Learn a new sport
+        <input type="checkbox" name="goal" value="Recovery from an injury">Recovery from an injury
     <br>
     <label>Please describe your goal in more detail.</label>
     <input type="text" name="details">
@@ -49,7 +49,7 @@
     </select>
     <br>
     <label>How far would you be willing to travel?</label>
-    <select name="travel-time">
+    <select name="travelTime">
          <option value="15">15 min</option>
         <option value="30">30 min</option>
         <option value="60">60 min</option>
@@ -78,8 +78,8 @@
         <option value="After 6">After 6 pm</option>
     </select>
     <br>
-    <label>What service can you provide for a Fitness Ninja?</label>
-    <select name="skills[]">
+    <label>What services can you provide for a Fitness Ninja?</label>
+    <select name="skills" multiple>
         <option value="None">None of these</option>
         <option value="Accountant">Accountant</option>
         <option value="Architect">Architect</option>
@@ -87,7 +87,7 @@
     </select>
     <br>
     <label>If not listed, perhaps you have another skill or an item of value that you can share?</label>
-    <input type="text" name="skills[]">
+    <input type="text" name="skills">
     <br>
     <label>If you have a LinkedIn profile, please provide the link below.</label>
     <input type="text" name="linkedin">
