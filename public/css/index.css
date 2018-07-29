@@ -1,1 +1,4 @@
-body {background-color: aquamarine;}
+.label{
+   padding-right: 10px;
+   font-weight: 600;
+}
