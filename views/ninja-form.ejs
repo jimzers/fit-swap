@@ -1,7 +1,6 @@
 <% include partials/header %>
 
-
-<h1>Find a Fitness Ninja</h1>
+<h1>Ninja Form</h1>
 
 <form method="POST" action="/users/add">
     <label>First Name</label>
@@ -13,93 +12,16 @@
     <label>Email</label>
     <input type="text" name="email">
     <br>
-    <label>What's your fitness goal?</label>
+    <label>What is your fitness goal?</label>
     <select>
         <option value="">Get in Shape</option>
         <option value="">Learn a new sport</option>
         <option value="">Recovery from an injury</option>
     </select>
-    <br>
-    <label>Please describe your goal in more detail.</label>
-    <input type="text" name="goal">
-    <br>
-    <label>How important is it?</label>
-    <select>
-        <option value="">1 - why am I here?</option>
-        <option value="">2 - not to sure</option>
-        <option value="">3 - would be nice</option>
-        <option value="">4 - I'd love to</option>
-        <option value="">5 - I need it now!</option>
-    </select>
-    <br>
-    <label>Where are you from?</label>
-    <input type="text" name="place">
-    <br>
-    <label>What gym membership do you have, if any?</label>
-    <select>
-        <option value="">None</option>
-        <option value="">Not listed</option>
-        <option value="">Anytime fitness</option>
-        <option value="">Better</option>
-        <option value="">Equinox</option>
-        <option value="">Fit4less</option>
-        <option value="">Fitness First</option>
-        <option value="">Nuffield</option>
-    </select>
-    <br>
-    <label>Gym not listed?</label>
-    <input type="text" name="gym">
-    <br>
-    <label>How far would you be willing to travel?</label>
-    <select>
-        <option value="">30 min</option>
-        <option value="">60 min</option>
-        <option value="">90 min</option>
-    </select>
-    <br>
-    <label>Would you rather train in a gym, at home, outdoors or online?</label>
-    <select>
-        <option value="">Gym</option>
-        <option value="">At home</option>
-        <option value="">Outdoors</option>
-        <option value="">Online</option>
-    </select>
-    <br>
-    <label>What days of the week would suit you?</label>
-    <select>
-        <option value="">Weekdays</option>
-        <option value="">Weekends</option>
-    </select>
-    <br>
-    <label>What time of the day would suit you?</label>
-    <select>
-        <option value="">Before 9 am</option>
-        <option value="">9 am - 12 pm</option>
-        <option value="">12 pm - 6 pm</option>
-        <option value="">After 6 pm</option>
-    </select>
-    <br>
-    <label>What service can you provide for a Fitness Ninja?</label>
-    <select>
-        <option value="">None of these</option>
-        <option value="">Accountant</option>
-        <option value="">Architect</option>
-        <option value="">Business consultant</option>
-    </select>
-    <br>
-    <label>If not listed, perhaps you have another skill or an item of value that you can share?</label>
-    <input type="text" name="skill">
-    <br>
-    <label>If you have a LinkedIn profile, please provide the link below.</label>
-    <input type="text" name="linkedin">
-    <br>
-    <label>Will you give your best work and adhere to the Fitswap Code?</label>
-    <input type="checkbox" name="agreement" value=""> By checking the box you are also accepting our Terms of Service.
-    <br>
-    <label>Please give us your consent to store your data and to communicate via email.</label>
-    <input type="checkbox" name="agreement" value="">Fitswap will email you in order to deliver our service and to continuously improve it by asking for feedback. We may also tell you about offers from carefully selected third parties that have been granted to Fitswap users. You always have the right to opt out. Please view the Privacy Policy on our website for more details.
+    <label></label>
     <br><br>
     <input type="submit" value="Submit">
 </form>
+
 
 <% include partials/footer %>

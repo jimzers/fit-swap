@@ -15,6 +15,10 @@ router.get('/novice', (req, res) => {
    res.render('novice-form');
 });
 
+router.get('/agora', (req, res) => {
+   res.render('agora');
+});
+
 router.post("/novice/add", (req, res) => {
    //HANDLE NOVICE DATA FORM
    firebase.auth().createUserWithEmailAndPassword("marshall@yahoo.com", "password")
