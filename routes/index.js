@@ -20,29 +20,30 @@ router.get('/agora', (req, res) => {
 });
 
 router.post("/novice/add", (req, res) => {
+   console.log(req.body);
    //HANDLE NOVICE DATA FORM
-   firebase.auth().createUserWithEmailAndPassword("marshall@yahoo.com", "password")
+   firebase.auth().createUserWithEmailAndPassword(req.body.email, "password")
    .then(user => {
       var userID = firebase.auth().currentUser.uid;
       console.log(userID);
 
-      const newNinja = {
-         name: "lastName",
-         email: "email",
-         linkedin: "www.linkedin.com/in/name",
-         phone: "phone",
-         photo: "imageURL",
-         goal: ["fat loss", "muscle tone", "sports"],
-         details: ["tennis", "basketball", "physique"],
-         location: "111 Howard St, Oakland, CA, 94666",
-         gyms: [
-            "24 hour fitness",
-            "Gold's",
-            "Planet Fitness"
-         ],
-         time: "12pm - 8pm"
+      const newNovice = {
+         name: {
+            first: req.body.first_name,
+            last: req.body.last_name
+            },
+         email: req.body.email,
+         linkedin: req.body.linkedin,
+         phone: req.body.phone,
+         photo: "https://res.cloudinary.com/skooliesocial/image/upload/v1532122742/users/whitedog593-1532122742701.jpg",
+         goal: req.body.goal,
+         details: req.body.details,
+         importance: req.body.importance,
+         location: req.body.location,
+         gym: req.body.gym,
+         time: req.body.time
       };
-      db.ref('ninjas').child(userID).set(newNinja)
+      db.ref('novices').child(userID).set(newNovice)
       .catch(err => {
          console.log(err);
       });
@@ -53,32 +54,32 @@ router.post("/novice/add", (req, res) => {
       var errorMessage = error.message;
       console.log(errorCode, errorMessage);
     });
-
-   res.redirect('results');
+   
+   res.redirect('/results');
 });
 
 router.post("/ninja/add", (req, res) => {
+   console.log(req.body);
    //HANDLE NINJA DATA FORM
-   firebase.auth().createUserWithEmailAndPassword("marshall@yahoo.com", "password")
+   firebase.auth().createUserWithEmailAndPassword(req.body.email, "password")
    .then(user => {
       var userID = firebase.auth().currentUser.uid;
       console.log(userID);
 
       const newNinja = {
-         name: "lastName",
-         email: "email",
-         linkedin: "www.linkedin.com/in/name",
-         phone: "phone",
-         photo: "imageURL",
-         goal: ["fat loss", "muscle tone", "sports"],
-         details: ["tennis", "basketball", "physique"],
-         location: "111 Howard St, Oakland, CA, 94666",
-         gyms: [
-            "24 hour fitness",
-            "Gold's",
-            "Planet Fitness"
-         ],
-         time: "12pm - 8pm"
+         name: {
+            first: req.body.first_name,
+            last: req.body.last_name
+            },
+         email: req.body.email,
+         linkedin: req.body.linkedin,
+         phone: req.body.phone,
+         photo: req.body.imageURL,
+         goal: req.body.goal,
+         details: req.body.details,
+         location: req.body.location,
+         gym: req.body.gym,
+         time: req.body.time
       };
       db.ref('ninjas').child(userID).set(newNinja)
       .catch(err => {
