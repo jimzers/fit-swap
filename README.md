@@ -1,5 +1,5 @@
 ![alt text](https://www.fitswap.london/uploads/1/2/0/5/120593213/fitswap-logo-green.png)
-![alt text](https://www.fitswap.london/uploads/1/2/0/5/120593213/fitswap-logo-green.png)
+
 # fit-swap
 angelhack 2018
 
