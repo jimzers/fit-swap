@@ -24,89 +24,83 @@ router.get('/novice', (req, res) => {
 
 // Get form to display matches
 router.get('/results', (req, res) => {
-   // Create an array to hold ninja objects  ---NOTE: this is not an array yet
-   var ninjas = [];
-   var User = {};
+    // Create an array to hold ninja objects  ---NOTE: this is not an array yet
+    var ninjas = [];
+    var User = {};
 
-   // Get the novice we are matching with
-  db.ref('novices').child('Vw3flmhruoQZW44FeDqAXQU6gyn2').once('value', novice => {    
-      User = novice.val();
-      console.log("NOVICE: ", User);
-   })
-   .catch(err => { console.log(err); }) 
+    // Get the novice we are matching with
+    db.ref('novices').child('Vw3flmhruoQZW44FeDqAXQU6gyn2').once('value', novice => {
+        User = novice.val();
+        console.log("NOVICE: ", User);
+    })
+        .catch(err => {
+            console.log(err);
+        });
 
-   // Get ninja objects
-   db.ref('ninja').once('value', ninja => {
-      //console.log(ninja.val());
-      
-      // Push ninjas to array
-      Object.values(ninja.val()).forEach(ninja => {
-         ninjas.push(ninja);
-      });
-      //console.log(ninjas);
+    // Get ninja objects
+    db.ref('ninja').once('value', ninja => {
+        //console.log(ninja.val());
 
-      //Match by goal
-      for (let index = 0; index < ninjas.length; index++) {
-         if(ninjas[index].goal == User.goal) ninjas[index].rating++;      
-      }
-   
-      //Match by details
-      for (let index = 0; index < ninjas.length; index++) {
-         if(ninjas[index].details == User.details) ninjas[index].rating++;      
-      }
+        // Push ninjas to array
+        Object.values(ninja.val()).forEach(ninja => {
+            ninjas.push(ninja);
+        });
+        //console.log(ninjas);
 
-      //Match by time
-      for (let index = 0; index < ninjas.length; index++) {
-         if(ninjas[index].time == User.time) ninjas[index].rating++;      
-      }
+        //Match by goal
+        for (let index = 0; index < ninjas.length; index++) {
+            if (ninjas[index].goal == User.goal) ninjas[index].rating++;
+        }
 
-      //Match by gym
-      for (let index = 0; index < ninjas.length; index++) {
-         if(ninjas[index].gym == User.gym) ninjas[index].rating++;      
-      }
-      //Match by skills
-      for (let index = 0; index < ninjas.length; index++) {
-         ninjas[index].skills.forEach( skill => {
-            if(User.skills.includes(skill)) ninjas[index].rating++;
-         });        
-      }
+        //Match by details
+        for (let index = 0; index < ninjas.length; index++) {
+            if (ninjas[index].details == User.details) ninjas[index].rating++;
+        }
 
-      //Print ratings
-      for (let index = 0; index < ninjas.length; index++) {
-         console.log(ninjas[index].name.first+": "+ninjas[index].rating)        
-      }
+        //Match by time
+        for (let index = 0; index < ninjas.length; index++) {
+            if (ninjas[index].time == User.time) ninjas[index].rating++;
+        }
 
+        //Match by gym
+        for (let index = 0; index < ninjas.length; index++) {
+            if (ninjas[index].gym == User.gym) ninjas[index].rating++;
+        }
+        //Match by skills
+        for (let index = 0; index < ninjas.length; index++) {
+            ninjas[index].skills.forEach(skill => {
+                if (User.skills.includes(skill)) ninjas[index].rating++;
+            });
+        }
 
-      //Rank by compatibility
-      function sortFunction(a, b) {
-         if (a.rating === b.rating) {
-            return 0;
-         }
-         else {
-            return (a.rating < b.rating) ? -1 : 1;
-         }
-      }
-      var sortedArray = ninjas.sort(sortFunction);
-      console.log("sorting ninjas...");
-      console.log(sortedArray);
+        //Print ratings
+        for (let index = 0; index < ninjas.length; index++) {
+            console.log(ninjas[index].name.first + ": " + ninjas[index].rating)
+        }
 
 
-      console.log("SORTED NINJAS: ", sortedArray);
-      
-      // Render the results
-      res.render('results', {ninjas: sortedArray}); 
-   });
+        //Rank by compatibility
+        function sortFunction(a, b) {
+            if (a.rating === b.rating) {
+                return 0;
+            }
+            else {
+                return (a.rating < b.rating) ? 1 : -1;
+            }
+        }
 
-         // Get the distances from the novice
-         axios.get("https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins="+lat+","+lng+"&destinations="+37.834133+","+-122.005266+"&travelMode=driving&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
-         .then(res => {
-            console.log("DISTANCE: ", res.data.resourceSets[0].resources[0].results[0].travelDuration, "minutes");
-         })
-         .catch(err => { console.log("ERROR: ", err); });
+        var sortedArray = ninjas.sort(sortFunction);
+        console.log("sorting ninjas...");
+        console.log(sortedArray);
 
-      // Render the results
-      res.render('results', {ninjas: sortedArray});
+
+        console.log("SORTED NINJAS: ", sortedArray);
+
+        // Render the results
+        res.render('results', {ninjas: sortedArray});
+    });
 });
+/*
 function getNoviceLocation (id) {
    return axios.get("http://dev.virtualearth.net/REST/v1/Locations/"+id+"?o=json&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
        .then(response => {
@@ -120,7 +114,7 @@ function getNoviceLocation (id) {
        })
        .catch(err => { console.log(err); }) 
 }
-
+*/
 
 // Get video chat via agora
 router.get('/agora', (req, res) => {
