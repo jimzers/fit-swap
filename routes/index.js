@@ -74,7 +74,7 @@ router.post("/ninja/add", (req, res) => {
          email: req.body.email,
          linkedin: req.body.linkedin,
          phone: req.body.phone,
-         photo: req.body.imageURL,
+         photo: "https://res.cloudinary.com/skooliesocial/image/upload/v1532122742/users/whitedog593-1532122742701.jpg",
          goal: req.body.goal,
          details: req.body.details,
          location: req.body.location,
