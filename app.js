@@ -2,7 +2,6 @@
 const bodyParser  = require('body-parser'),
       firebase    = require("firebase");
       express     = require('express'),
-      config      = require('./.config'),
       path        = require('path'),
       app         = express();
 
