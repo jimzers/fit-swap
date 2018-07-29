@@ -1,21 +1,23 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var expressValidator = require('express-validator');
-var firebase = require("firebase");
+/** FIT SWAP APP **/
+const bodyParser  = require('body-parser'),
+      firebase    = require("firebase");
+      express     = require('express'),
+      config      = require('./.config'),
+      path        = require('path'),
+      app         = express();
 
-// Initialize Firebase
+
+
+// Initialize Firebase Database
 // TODO: Replace with your project's customized code snippet
-var config = {
-    apiKey: "AIzaSyDkm1KG9gyzQn70FWalWm19OYzGRxxJWoA",
+var configs = {
+    apiKey: "firebase.API_KEY",
     authDomain: "fitswap-f2c33.firebaseapp.com",
     databaseURL: "https://fitswap-f2c33.firebaseio.com",
     storageBucket: "fitswap-f2c33.appspot.com",
 };
-firebase.initializeApp(config);
+firebase.initializeApp(configs);
 
-// Initialize express app
-var app = express();
 
 // View Engine
 app.set('view engine', 'ejs');
@@ -34,6 +36,7 @@ app.use(function(req, res, next){
     next();
 });
 
+// Include routes
 const indexRoutes = require("./routes/index");
 app.use(indexRoutes);
 
