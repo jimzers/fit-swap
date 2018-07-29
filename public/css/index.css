@@ -1,7 +1,11 @@
 body{
+   font-family: 'Open Sans', sans-serif;
    margin: 0;
-   color: white;
+   color: black;
    /* background-color: #00ad77; */
+}
+h1{
+   margin: 0;
 }
 a{
    color: white;
@@ -10,8 +14,8 @@ a{
 }
 a:hover{
    color: black;
-   text-decoration: underline;
 }
+.green{background-color: #00ad77;}
 .logo{ width: 25px;
 padding-right: 10px;}
 .title{display: inline;
@@ -20,6 +24,7 @@ padding-right: 20px;}
    margin: 0;
    padding: 10px;
    background-color: #17a377;
+   color: white;
 }
 .label{
    padding-right: 10px;
@@ -29,4 +34,54 @@ padding-right: 20px;}
 .pad{
    margin-bottom: 20px;
 }
-.form{color: black;}
+.form{color: white;}
+.form.match{
+   background-color: #00ad77;
+   padding: 20px;
+}
+.ninja{
+   display: flex; 
+   width: 80%;
+   margin: 0 auto;
+   margin-bottom: 10px; 
+   border: 1px solid #bbb;
+   border-radius: 5px;
+}
+.ninja table{
+   color: black;
+}
+.details{
+   
+   background-color: white;
+   width: 100%;
+}
+.buttons{
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   margin: 0 auto;
+   margin-bottom: 10px;
+}
+.buttons a{
+   margin: 0;
+}
+.btn{
+   background-color: black;
+   border: none;
+   border-radius: 5px;
+   padding: 8px;
+   color: white;
+   margin-right: 10px;
+}
+
+.btn.swap {
+   background-color: blue;
+}
+
+.btn.buy {
+   background-color: #17a377;
+}
+.codes{
+   max-width: 100%;
+   text-align: center;
+}

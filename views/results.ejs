@@ -1,46 +1,60 @@
 <% include partials/header %>
-<h1>Your Matches</h1>
+<div class="match form">
+<h1 style="text-align: center">Your Matches</h1>
 
 
 <% ninjas.forEach(ninja => { %>
-   <div style="display: flex; margin-bottom: 10px; border: 1px solid #bbb;" class="label">
+   <div class="ninja">
       <div>
          <img src="<%= ninja.photo %>" alt="" style="width: 200px;">
       </div>
-      <div>
+      <div class="details">
          <table>
             <tr>
                <td class="label"><p>Name: </p></td>
                <td><p><%= ninja.name.first %> <%= ninja.name.last %></p></td>
             </tr>
             <tr>
-               <td class="label"><p>Email: </p></td>
-               <td><p><%= ninja.email %></p></td>
-            </tr>
-            <tr>
-               <td class="label"><p>LinkedIn Profile: </p></td>
+               <td class="label"><p>LinkedIn: </p></td>
                <td><p><%= ninja.linkedin %></p></td>
-            </tr>
+            </tr>           
             <tr>
-               <td class="label"><p>Phone: </p></td>
-               <td><p><%= ninja.phone %></p></td>
+               <td class="label"><p>Goal: </p></td>
+               <td><p><%= ninja.goal %></p></td>
             </tr>
+            
+            <tr>
+               <td class="label"><p>Details: </p></td>
+               <td><p><%= ninja.details %></p></td>
+            </tr>
+
+            <tr>
+                  <td class="label"><p>Looking for: </p></td>
+                  <td><p><%= ninja.skills %></p></td>
+               </tr>
+
+            <tr>
+                  <td class="label"><p>Gyms: </p></td>
+                  <td><p><%= ninja.gym %></p></td>
+               </tr>
             <tr>
                <td class="label"><p>Location: </p></td>
                <td><p><%= ninja.location %></p></td>
             </tr>
-            <tr>
-               <td class="label"><p>Gyms: </p></td>
-               <td><p><%= ninja.gym %></p></td>
-            </tr>
+            
 
          </table>
+         <div class="buttons">
          <a href="https://jimzers.github.io/livechat-fitSwap/">
-            <button>CONTACT <%= ninja.name.first %></button>
+            <button class="btn contact">CONTACT</button>
          </a>
+         <button class="btn swap">SWAP</button>
+         <button class="btn buy">BUY</button>
+      </div>
       </div>
    </div>
    
 <% }); %>
+</div>
 
 <% include partials/footer %>
