@@ -29,8 +29,7 @@ router.get('/results', (req, res) => {
    var User = {};
 
    // Get the novice we are matching with
-  db.ref('novices').child('Vw3flmhruoQZW44FeDqAXQU6gyn2').once('value', novice => {
-      
+  db.ref('novices').child('Vw3flmhruoQZW44FeDqAXQU6gyn2').once('value', novice => {    
       User = novice.val();
       console.log("NOVICE: ", User);
    })
@@ -77,13 +76,18 @@ router.get('/results', (req, res) => {
          console.log(ninjas[index].name.first+": "+ninjas[index].rating)        
       }
 
+<<<<<<< HEAD
       // Rank by compatibility
 
+=======
+      //Rank by compatibility
+>>>>>>> a6cffd45830c1f2344495eb82599a77e8e236c7c
       function sortFunction(a, b) {
          if (a.rating === b.rating) {
             return 0;
          }
          else {
+<<<<<<< HEAD
             return (a.rating < b.rating) ? -1 : 1;
          }
       }
@@ -91,13 +95,20 @@ router.get('/results', (req, res) => {
       console.log("sorting ninjas...");
       console.log(sortedArray);
    
+=======
+            return (a.rating < b.rating) ? 1 : -1;
+         }
+      }
+      var sortedArray = ninjas.sort(sortFunction);
+>>>>>>> a6cffd45830c1f2344495eb82599a77e8e236c7c
 
-      // Get the locations of the ninja
-      axios.get("http://dev.virtualearth.net/REST/v1/Locations/1%20Microsoft%20Way%20Redmond%20WA%2098052?o=json&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
-      .then(res => {
-         var lat = res.data.resourceSets[0].resources[0].point.coordinates[0];
-         var lng = res.data.resourceSets[0].resources[0].point.coordinates[1];
+      console.log("SORTED NINJAS: ", sortedArray);
+      
+      // Render the results
+      res.render('results', {ninjas: sortedArray}); 
+   });
 
+<<<<<<< HEAD
          // Get the distances from the novice
          axios.get("https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins="+lat+","+lng+"&destinations="+37.834133+","+-122.005266+"&travelMode=driving&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
          .then(res => {
@@ -106,15 +117,35 @@ router.get('/results', (req, res) => {
          .catch(err => { console.log("ERROR: ", err); }); 
       }) 
       .catch(err => { console.log(err); });
+=======
+     
+});
+>>>>>>> a6cffd45830c1f2344495eb82599a77e8e236c7c
 
-      //Match by distance
 
-      
 
+<<<<<<< HEAD
       // Render the results
       res.render('results', {ninjas: sortedArray});
    });       
 });
+=======
+function getNoviceLocation (id) {
+   return axios.get("http://dev.virtualearth.net/REST/v1/Locations/"+id+"?o=json&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
+       .then(response => {
+         this.response = response.data
+         console.log(this.response.resourceSets[0].resources[0].point.coordinates[0]);
+         console.log(this.response.resourceSets[0].resources[0].point.coordinates[1]);
+         return {
+            noviceLat: this.response.resourceSets[0].resources[0].point.coordinates[0],
+            noviceLng: this.response.resourceSets[0].resources[0].point.coordinates[1]            
+         }
+       })
+       .catch(err => { console.log(err); }) 
+}
+
+         
+>>>>>>> a6cffd45830c1f2344495eb82599a77e8e236c7c
 
 // Get video chat via agora
 router.get('/agora', (req, res) => {
@@ -210,3 +241,41 @@ router.post("/ninja/add", (req, res) => {
 
 
 module.exports = router;
+
+
+  //    //Match by distance
+
+      
+   //    // Get the lat and lng for the novice
+   //    var noviceLat='';
+   //    var noviceLng='';
+   //    getNoviceLocation(User.location)
+   //    .then(data => {
+   //       console.log("DATA: ", data)
+         
+   //          noviceLat = data.noviceLat;
+   //          noviceLng = data.noviceLng;
+   //    });
+      
+   //    //For each ninja...
+   //    for (let index = 0; index < ninjas.length; index++) {
+   //       // Get the lat/lng of the ninja
+   //       axios.get("http://dev.virtualearth.net/REST/v1/Locations/"+ninjas[index].location+"?o=json&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
+   //       .then(res => {
+   //          var lat = res.data.resourceSets[0].resources[0].point.coordinates[0];
+   //          var lng = res.data.resourceSets[0].resources[0].point.coordinates[1];
+
+   //          //Get the distance between ninja and novice
+   //          console.log(noviceLat, noviceLng);
+   //          axios.get("https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins="+lat+","+lng+"&destinations="+noviceLat+","+noviceLng+"&travelMode=driving&key=Arxylcl6DjxfZ6WjZqx09X3ZRATy5amWAmw-ky_GqSBzJ_A1kHWwnqQyJdV-Whcl")
+   //          .then(res => {
+   //             console.log("DISTANCE: ", res.data.resourceSets[0].resources[0].results[0].travelDuration, "minutes");
+   //             ninjas[index].minutes = res.data.resourceSets[0].resources[0].results[0].travelDuration;
+   //          })
+   //          .catch(err => { console.log("ERROR: ", err); }); 
+            
+   //       }) 
+   //       .catch(err => { console.log(err); }) 
+
+   //       if(ninjas[index].minutes < User.travelTime) ninjas[index].rating++;
+   //    }

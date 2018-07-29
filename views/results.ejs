@@ -2,7 +2,7 @@
 <h1>Your Matches</h1>
 
 
-<% Object.values(ninjas).forEach(ninja => { %>
+<% ninjas.forEach(ninja => { %>
    <div style="display: flex; margin-bottom: 10px; border: 1px solid #bbb;" class="label">
       <div>
          <img src="<%= ninja.photo %>" alt="" style="width: 200px;">
